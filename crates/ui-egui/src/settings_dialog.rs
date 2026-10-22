@@ -279,6 +279,8 @@ impl LauncherUi {
         }
         let Some((_, listing)) = &self.fonts else { return };
         let listing = listing.clone();
+        // egui draws only on input or when asked, so ask: an idle window still picks up changes.
+        ui.ctx().request_repaint_after(std::time::Duration::from_secs_f64(REFRESH_SECS));
         let t = Tokens::get(ui.ctx());
         let mut add = false;
         let mut remove = None;
