@@ -110,6 +110,9 @@ impl Vault {
         let fonts = vault.root.join(FONTS_DIR);
         fs::create_dir_all(&fonts).at(&fonts)?;
         let manifest = vault.manifest_path();
+        // Check and create under the lock: otherwise a concurrent init could find no manifest,
+        // wait while another writer creates one and adds a font, then save an empty one over it.
+        let _lock = vault.lock()?;
         if !manifest.exists() {
             Manifest::default().save(&manifest)?;
         }
