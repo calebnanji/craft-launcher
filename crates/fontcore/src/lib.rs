@@ -1,6 +1,6 @@
 //! FontCore: a local, open-source font vault for the Craft App Suite.
 //!
-//! Mirrored from [calebnanji/FontCore](https://github.com/calebnanji/FontCore) (commit 77b122a,
+//! Mirrored from [calebnanji/FontCore](https://github.com/calebnanji/FontCore) (commit 8059118,
 //! `fonts.json` schema v1, stable). Keep the two in step: the layout is specified by
 //! `schema/fonts.v1.json`, and `tests/schema.rs` checks this code against it.
 //!
